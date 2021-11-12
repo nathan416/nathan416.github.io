@@ -33,6 +33,8 @@
             border: 3px solid steelblue;
             border-radius: 5px;
             padding: 10px;
+            background-color: grey;
+            
         }
     </style>
     <title>HW6 - JQuery</title>
@@ -52,10 +54,16 @@
             $buttonStart.click(function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
+                $(".timer-background").css("background-color", "lightgreen");
             });
 
             $buttonStop.click(function () {
                 clearInterval(interval);
+                if (tens == "00" && seconds == "00") {
+                    $(".timer-background").css("background-color", "grey");
+                }else{
+                    $(".timer-background").css("background-color", "lightcoral");
+                }
             });
 
             $buttonReset.click(function () {
@@ -64,6 +72,7 @@
                 seconds = "00";
                 $appendTens.html(tens);
                 $appendSeconds.html(seconds);
+                $(".timer-background").css("background-color", "grey");
             });
 
             function startTimer() {
