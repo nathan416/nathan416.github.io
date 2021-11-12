@@ -123,6 +123,7 @@
 
             $buttonStart.click(function () {
                 clearInterval(interval);
+                clearInterval(animationInterval);
                 interval = setInterval(startTimer, 10);
                 animationInterval = setInterval(opacityToggle, 2000);
                 $(".timer-background").css("background-color", "lightgreen");
