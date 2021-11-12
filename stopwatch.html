@@ -10,58 +10,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HW6 - JQuery</title>
     <script>
-        window.onload = function () {
+        $(function(){
             var seconds = 00;
             var tens = 00;
-            var appendTens = document.getElementById("tens")
-            var appendSeconds = document.getElementById("seconds")
-            var buttonStart = document.getElementById('button-start');
-            var buttonStop = document.getElementById('button-stop');
-            var buttonReset = document.getElementById('button-reset');
+            var $appendTens = $("#tens")
+            var $appendSeconds = $("#seconds")
+            var $buttonStart = $('#button-start');
+            var $buttonStop = $('#button-stop');
+            var $buttonReset = $('#button-reset');
             var interval;
 
-            buttonStart.onclick = function () {
+            $buttonStart.click(function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
-            }
+            });
 
-            buttonStop.onclick = function () {
+            $buttonStop.click(function () {
                 clearInterval(interval);
-            }
+            });
 
-            buttonReset.onclick = function () {
+            $buttonReset.click(function () {
                 clearInterval(interval);
                 tens = "00";
                 seconds = "00";
-                appendTens.innerHTML = tens;
-                appendSeconds.innerHTML = seconds;
-            }
+                $appendTens.html(tens);
+                $appendSeconds.html(seconds);
+            });
 
             function startTimer() {
                 tens++;
 
                 if (tens < 9) {
-                    appendTens.innerHTML = "0" + tens;
+                    $appendTens.html("0" + tens);
                 }
 
                 if (tens > 9) {
-                    appendTens.innerHTML = tens;
+                    $appendTens.html(tens);
 
                 }
 
                 if (tens > 99) {
                     console.log("seconds");
                     seconds++;
-                    appendSeconds.innerHTML = "0" + seconds;
+                    $appendSeconds.html("0" + seconds);
                     tens = 0;
-                    appendTens.innerHTML = "0" + 0;
+                    $appendTens.html("0" + 0);
                 }
 
                 if (seconds > 9) {
-                    appendSeconds.innerHTML = seconds;
+                    $appendSeconds.html(seconds);
                 }
             }
-        }
+        });
     </script>
 </head>
 
