@@ -50,6 +50,28 @@
             var interval;
 
             $("#timer").addClass("timer-background");
+            $("button").addClass("button-style");
+            $(".button-style").css({
+                "border": "3px solid steelblue",
+                "color": "white",
+                "background-color": "black",
+                "border-radius": "10px",
+                "padding-right": "10px",
+                "padding-left": "10px",
+                "margin": "5px",
+                "font-family": "'Roboto',sans-serif"
+            });
+            $(".button-style").mouseenter(function() {
+                $(this).css({
+                "background-color": "darkgrey",
+                });
+            });
+            $(".button-style").mouseleave(function() {
+                $(this).css({
+                "background-color": "black",
+                });
+            });
+            //can't use the :hover css in jquery without events
 
             $buttonStart.click(function () {
                 clearInterval(interval);
